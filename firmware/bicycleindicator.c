@@ -1,5 +1,5 @@
 /*
- * Bicycle indicator based on Attiny13a
+ * Bi-cycle indicator based on Attiny13a
  * 
  * Copyright (C) 2017  Amitesh Singh <singh.amitesh@gmail.com>
  *
@@ -31,19 +31,21 @@ const static uint16_t BLINK_LEDS_TIMEOUT = 80;
 #define LEFT_LED        PB3
 #define RIGHT_LED       PB4
 
-static volatile int8_t key_pressed = 0;
-//1 PB0 is pressed
-//2 PB1 is pressed 
+// 1 PB0 is pressed
+// 2 PB1 is pressed 
 // 0 none is pressed
+static volatile int8_t key_pressed = 0;
 
-static void my_delay(uint16_t ms)
+static void
+my_delay(uint16_t ms)
 {
   uint16_t i = 0;
   for (; i < ms; ++i)
     _delay_ms(1);
 }
 
-static void blinkLed(uint8_t pin)
+static void
+blink_led(uint8_t pin)
 {
   PORTB |= (1 << pin);
   my_delay(BLINK_LEDS_TIMEOUT);
@@ -55,7 +57,8 @@ static void blinkLed(uint8_t pin)
 const static uint8_t DEBOUNCE_TIMEOUT = 50;
 
 //software debounce
-static uint8_t debounce(uint8_t pin)
+static uint8_t
+debounce(uint8_t pin)
 {
    if (bit_is_clear(PINB, pin))
      {
@@ -82,7 +85,8 @@ ISR(PCINT0_vect)
      }
 }
 
-void blinkLeds()
+static void
+blink_leds()
 {
    PORTB |= (1 << LEFT_LED) | (1 << RIGHT_LED);
    my_delay(BLINK_LEDS_TIMEOUT);
@@ -92,15 +96,20 @@ void blinkLeds()
 }
 
 //blink both LEFT and right key for 4 times
-void startMechanism()
+static void
+start_show()
 {
    uint8_t i = 0;
    for (; i < 4; ++i)
-     blinkLeds();
+     blink_leds();
 }
 
 int main(void)
 {
+   // save power by disabling all the peripherals properties (ADC etcs)
+   // since we don't need it.
+   power_all_disable();
+   cli();
                  //left        right  
    DDRB |= (1 << LEFT_LED) | (1 << RIGHT_LED);
 
@@ -109,20 +118,19 @@ int main(void)
    DDRB &= ~(1 << RIGHT_SWITCH); // Right key
    PORTB |= (1 << LEFT_SWITCH) | (1 << RIGHT_SWITCH);
 
-
    GIMSK |= (1 << PCIE); // enable PCINT 
    PCMSK |= (1 << PCINT1) | (1 << PCINT0);
 
    sei(); //set global enable interrupts!
 
-   startMechanism();
+   start_show();
 
    while (1)
      {
         if (key_pressed != 0)
           {
-            if (key_pressed == 1) blinkLed(LEFT_LED);
-            else if (key_pressed == 2) blinkLed(RIGHT_LED);
+            if (key_pressed == 1) blink_led(LEFT_LED);
+            else if (key_pressed == 2) blink_led(RIGHT_LED);
           }
         else
           {
@@ -131,7 +139,6 @@ int main(void)
              cli();
              set_sleep_mode(SLEEP_MODE_PWR_DOWN);
              sleep_enable();
-             power_all_disable();
              sei();
              sleep_mode();  // <<-- sleep here
 
