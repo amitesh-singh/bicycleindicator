@@ -142,7 +142,8 @@ int main(void)
    volatile uint8_t timer_started = 0;
    // save power by disabling all the peripherals properties (ADC etcs)
    // since we don't need it.
-   //power_all_disable();
+   power_all_disable();
+   power_timer0_enable();
    clock_prescale_set(clock_div_4);
    cli();
                  //left        right  
