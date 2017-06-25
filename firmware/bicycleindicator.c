@@ -69,6 +69,7 @@ my_delay(uint16_t ms)
     _delay_ms(1);
 }
 
+/*
 static void
 blink_led(uint8_t pin)
 {
@@ -78,6 +79,7 @@ blink_led(uint8_t pin)
   PORTB &= ~(1 << pin);
   my_delay(BLINK_LEDS_TIMEOUT);
 }
+*/
 
 const static uint8_t DEBOUNCE_TIMEOUT = 8;
 
