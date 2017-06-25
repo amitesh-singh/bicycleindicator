@@ -22,6 +22,7 @@
 #include <avr/interrupt.h>
 #include <avr/power.h>
 #include <avr/sleep.h>
+#include <util/atomic.h>
 
 // in ms
 const static uint16_t BLINK_LEDS_TIMEOUT = 80;
@@ -31,6 +32,29 @@ const static uint16_t BLINK_LEDS_TIMEOUT = 80;
 #define RIGHT_SWITCH    PB2
 #define LEFT_LED        PB3
 #define RIGHT_LED       PB4
+
+// timer0 code
+static void
+init_timer0()
+{
+    // Compare Output Mode, non-PWM Mode
+    cli();
+    TCCR0B |= (1 << CS02) | (1 << CS00); // f_cpu/1024
+    TCCR0A |= (1 << COM0A1); // Clear OC0A on Compare Match  
+    TIMSK0 |= 1 << TOIE0;
+
+    TCNT0 = 0;
+    OCR0A = 250;
+    sei();
+}
+
+static void
+stop_timer()
+{
+    cli();
+    TIMSK0 &= ~(1 << TOIE0);
+    sei();
+}
 
 // 1 PB1 is pressed
 // 2 PB2 is pressed 
@@ -55,7 +79,7 @@ blink_led(uint8_t pin)
   my_delay(BLINK_LEDS_TIMEOUT);
 }
 
-const static uint8_t DEBOUNCE_TIMEOUT = 160;
+const static uint8_t DEBOUNCE_TIMEOUT = 8;
 
 //software debounce
 static uint8_t
@@ -86,6 +110,14 @@ ISR(PCINT0_vect)
      }
 }
 
+ISR(TIM0_OVF_vect)
+{
+  if (key_pressed == 1)
+    PORTB ^= (1 << LEFT_LED);
+  else if (key_pressed == 2)
+    PORTB ^= (1 << RIGHT_LED);
+}
+
 static void
 blink_leds()
 {
@@ -107,9 +139,11 @@ start_show()
 
 int main(void)
 {
+   volatile uint8_t timer_started = 0;
    // save power by disabling all the peripherals properties (ADC etcs)
    // since we don't need it.
-   power_all_disable();
+   //power_all_disable();
+   clock_prescale_set(clock_div_4);
    cli();
                  //left        right  
    DDRB |= (1 << LEFT_LED) | (1 << RIGHT_LED);
@@ -130,11 +164,25 @@ int main(void)
      {
         if (key_pressed != 0)
           {
-            if (key_pressed == 1) blink_led(LEFT_LED);
-            else if (key_pressed == 2) blink_led(RIGHT_LED);
+            //if (key_pressed == 1) blink_led(LEFT_LED);
+            //else if (key_pressed == 2) blink_led(RIGHT_LED);
+            if (!timer_started)
+            {
+              init_timer0();
+              ATOMIC_BLOCK(ATOMIC_FORCEON)
+                {
+                   timer_started = 1;
+                }
+            }
           }
         else
           {
+             //stop the timer0 
+             stop_timer();
+             ATOMIC_BLOCK(ATOMIC_FORCEON)
+               {
+                  timer_started = 0;
+               }
              //sleep
              PORTB &= ~((1 << LEFT_LED) | (1 << RIGHT_LED));
              cli();
