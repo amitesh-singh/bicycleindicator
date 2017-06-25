@@ -26,13 +26,14 @@
 // in ms
 const static uint16_t BLINK_LEDS_TIMEOUT = 80;
 
-#define LEFT_SWITCH     PB0
-#define RIGHT_SWITCH    PB1
+#define BUZZER_PORT     PB0 //OC0A
+#define LEFT_SWITCH     PB1
+#define RIGHT_SWITCH    PB2
 #define LEFT_LED        PB3
 #define RIGHT_LED       PB4
 
-// 1 PB0 is pressed
-// 2 PB1 is pressed 
+// 1 PB1 is pressed
+// 2 PB2 is pressed 
 // 0 none is pressed
 static volatile int8_t key_pressed = 0;
 
@@ -54,7 +55,7 @@ blink_led(uint8_t pin)
   my_delay(BLINK_LEDS_TIMEOUT);
 }
 
-const static uint8_t DEBOUNCE_TIMEOUT = 50;
+const static uint8_t DEBOUNCE_TIMEOUT = 160;
 
 //software debounce
 static uint8_t
@@ -119,7 +120,7 @@ int main(void)
    PORTB |= (1 << LEFT_SWITCH) | (1 << RIGHT_SWITCH);
 
    GIMSK |= (1 << PCIE); // enable PCINT 
-   PCMSK |= (1 << PCINT1) | (1 << PCINT0);
+   PCMSK |= (1 << PCINT1) | (1 << PCINT2);
 
    sei(); //set global enable interrupts!
 
