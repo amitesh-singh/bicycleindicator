@@ -51,9 +51,9 @@ init_timer0()
 static void
 stop_timer()
 {
-    cli();
+//    cli();
     TIMSK0 &= ~(1 << TOIE0);
-    sei();
+//    sei();
 }
 
 // 1 PB1 is pressed
@@ -146,7 +146,7 @@ int main(void)
    // since we don't need it.
    power_all_disable();
    power_timer0_enable();
-   clock_prescale_set(clock_div_4);
+   clock_prescale_set(clock_div_2);
    cli();
                  //left        right  
    DDRB |= (1 << LEFT_LED) | (1 << RIGHT_LED);
