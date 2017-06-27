@@ -146,7 +146,8 @@ int main(void)
    // since we don't need it.
    power_all_disable();
    power_timer0_enable();
-   clock_prescale_set(clock_div_2);
+   // now cpu runs at 4.8 Mhz
+   //clock_prescale_set(clock_div_2);
    cli();
                  //left        right  
    DDRB |= (1 << LEFT_LED) | (1 << RIGHT_LED);
