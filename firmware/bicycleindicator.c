@@ -69,50 +69,23 @@ my_delay(uint16_t ms)
     _delay_ms(1);
 }
 
-/*
-static void
-blink_led(uint8_t pin)
-{
-  PORTB |= (1 << pin);
-  my_delay(BLINK_LEDS_TIMEOUT);
-
-  PORTB &= ~(1 << pin);
-  my_delay(BLINK_LEDS_TIMEOUT);
-}
-*/
-
-const static uint8_t DEBOUNCE_TIMEOUT = 8;
-
-//software debounce
-static uint8_t
-debounce(uint8_t pin)
-{
-   if (bit_is_clear(PINB, pin))
-     {
-        _delay_ms(DEBOUNCE_TIMEOUT);
-        if (bit_is_clear(PINB, pin))
-          return 1;
-     }
-   return 0;
-}
-
 // PB0 - PCINT0
 // PB1 - PCINT1
 ISR(PCINT0_vect)
 {
-  if (debounce(LEFT_SWITCH))
+  if (bit_is_clear(PINB, LEFT_SWITCH))
      {
         if (!key_pressed) key_pressed = 1;
         else key_pressed = 0;
      }
-  else if (debounce(RIGHT_SWITCH))
+  else if (bit_is_clear(PINB, RIGHT_SWITCH))
      {
         if (!key_pressed) key_pressed = 2;
         else key_pressed = 0;
      }
 }
 
-ISR(TIM0_OVF_vect)
+ISR(TIM0_OVF_vect, ISR_NOBLOCK)
 {
   if (key_pressed == 1)
     PORTB ^= (1 << LEFT_LED);
@@ -168,8 +141,6 @@ int main(void)
      {
         if (key_pressed != 0)
           {
-            //if (key_pressed == 1) blink_led(LEFT_LED);
-            //else if (key_pressed == 2) blink_led(RIGHT_LED);
             if (!timer_started)
             {
               init_timer0();
