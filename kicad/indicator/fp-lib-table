@@ -1,0 +1,3 @@
+(fp_lib_table
+  (lib (name indicator)(type KiCad)(uri ${KIPRJMOD}/indicator.pretty)(options "")(descr ""))
+)
