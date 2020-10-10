@@ -107,7 +107,7 @@ U 1 1 5F7654EB
 P 5400 4000
 F 0 "Q2" H 5590 4046 50  0000 L CNN
 F 1 "2N3904" H 5590 3955 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-92_HandSolder" H 5600 3925 50  0001 L CIN
+F 2 "indicator:TO-92_HandSolder_Large_Pad" H 5600 3925 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 5400 4000 50  0001 L CNN
 	1    5400 4000
 	1    0    0    -1  
@@ -118,7 +118,7 @@ U 1 1 5F766A6B
 P 5100 4450
 F 0 "Q1" H 5291 4496 50  0000 L CNN
 F 1 "2N3904" H 5291 4405 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-92_HandSolder" H 5300 4375 50  0001 L CIN
+F 2 "indicator:TO-92_HandSolder_Large_Pad" H 5300 4375 50  0001 L CIN
 F 3 "https://www.fairchildsemi.com/datasheets/2N/2N3904.pdf" H 5100 4450 50  0001 L CNN
 	1    5100 4450
 	-1   0    0    -1  
