@@ -1,0 +1,246 @@
+EESchema Schematic File Version 4
+EELAYER 30 0
+EELAYER END
+$Descr A4 11693 8268
+encoding utf-8
+Sheet 1 1
+Title "555 based LED Driver"
+Date "2020-10-17"
+Rev "v 1.0"
+Comp ""
+Comment1 ""
+Comment2 ""
+Comment3 ""
+Comment4 ""
+$EndDescr
+$Comp
+L Timer:TLC555xP U1
+U 1 1 5F8B1729
+P 5550 3150
+F 0 "U1" H 5550 3731 50  0000 C CNN
+F 1 "TLC555xP" H 5550 3640 50  0000 C CNN
+F 2 "Package_DIP:DIP-8_W7.62mm" H 6200 2750 50  0001 C CNN
+F 3 "http://www.ti.com/lit/ds/symlink/tlc555.pdf" H 6400 2750 50  0001 C CNN
+	1    5550 3150
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR02
+U 1 1 5F8B1FA4
+P 5550 3700
+F 0 "#PWR02" H 5550 3450 50  0001 C CNN
+F 1 "GND" H 5555 3527 50  0000 C CNN
+F 2 "" H 5550 3700 50  0001 C CNN
+F 3 "" H 5550 3700 50  0001 C CNN
+	1    5550 3700
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5550 3550 5550 3600
+$Comp
+L power:PWR_FLAG #FLG01
+U 1 1 5F8B2551
+P 5450 2450
+F 0 "#FLG01" H 5450 2525 50  0001 C CNN
+F 1 "PWR_FLAG" H 5450 2623 50  0000 C CNN
+F 2 "" H 5450 2450 50  0001 C CNN
+F 3 "~" H 5450 2450 50  0001 C CNN
+	1    5450 2450
+	0    -1   -1   0   
+$EndComp
+$Comp
+L power:VCC #PWR01
+U 1 1 5F8B28D7
+P 5450 2350
+F 0 "#PWR01" H 5450 2200 50  0001 C CNN
+F 1 "VCC" H 5465 2523 50  0000 C CNN
+F 2 "" H 5450 2350 50  0001 C CNN
+F 3 "" H 5450 2350 50  0001 C CNN
+	1    5450 2350
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Device:R R2
+U 1 1 5F8B2F2C
+P 4700 3050
+F 0 "R2" H 4770 3096 50  0000 L CNN
+F 1 "68k" H 4770 3005 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 4630 3050 50  0001 C CNN
+F 3 "~" H 4700 3050 50  0001 C CNN
+	1    4700 3050
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C1
+U 1 1 5F8B34BD
+P 4200 3350
+F 0 "C1" H 4315 3396 50  0000 L CNN
+F 1 "0.01uF" H 4315 3305 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 4238 3200 50  0001 C CNN
+F 3 "~" H 4200 3350 50  0001 C CNN
+	1    4200 3350
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:C C2
+U 1 1 5F8B9D0F
+P 4700 3500
+F 0 "C2" H 4815 3546 50  0000 L CNN
+F 1 "10uF" H 4815 3455 50  0000 L CNN
+F 2 "Capacitor_SMD:C_1206_3216Metric_Pad1.33x1.80mm_HandSolder" H 4738 3350 50  0001 C CNN
+F 3 "~" H 4700 3500 50  0001 C CNN
+	1    4700 3500
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R1
+U 1 1 5F8BB69A
+P 4700 2600
+F 0 "R1" H 4770 2646 50  0000 L CNN
+F 1 "68k" H 4770 2555 50  0000 L CNN
+F 2 "Resistor_SMD:R_0805_2012Metric_Pad1.20x1.40mm_HandSolder" V 4630 2600 50  0001 C CNN
+F 3 "~" H 4700 2600 50  0001 C CNN
+	1    4700 2600
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5450 2300 5450 2350
+Wire Wire Line
+	5450 2650 5550 2650
+Wire Wire Line
+	5550 2650 5550 2700
+Connection ~ 5450 2350
+Wire Wire Line
+	5450 2350 5450 2450
+Connection ~ 5450 2450
+Wire Wire Line
+	5450 2450 5450 2650
+Wire Wire Line
+	6650 3600 5550 3600
+Connection ~ 5550 3600
+Wire Wire Line
+	5550 3600 5550 3650
+Wire Wire Line
+	4700 2750 4700 2850
+Wire Wire Line
+	4700 3200 4700 3300
+Connection ~ 5550 3650
+Wire Wire Line
+	5550 3650 5550 3700
+Wire Wire Line
+	5100 2450 5100 2700
+Wire Wire Line
+	5100 2700 5550 2700
+Connection ~ 5550 2700
+Wire Wire Line
+	5550 2700 5550 2750
+Wire Wire Line
+	4700 3300 4800 3300
+Wire Wire Line
+	4900 2950 5050 2950
+Wire Wire Line
+	4900 2950 4900 3300
+Connection ~ 4700 3300
+Wire Wire Line
+	4700 3300 4700 3350
+Wire Wire Line
+	4700 3650 5550 3650
+Wire Wire Line
+	4200 3500 4200 3650
+Wire Wire Line
+	4200 3650 4700 3650
+Connection ~ 4700 3650
+Wire Wire Line
+	4700 2450 4950 2450
+Wire Wire Line
+	5050 3350 4950 3350
+Wire Wire Line
+	4950 3350 4950 2450
+Connection ~ 4950 2450
+Wire Wire Line
+	4950 2450 5100 2450
+Wire Wire Line
+	6050 3150 6300 3150
+Wire Wire Line
+	6300 3150 6300 2600
+Wire Wire Line
+	6300 2600 4900 2600
+Wire Wire Line
+	4900 2600 4900 2850
+Wire Wire Line
+	4900 2850 4700 2850
+Connection ~ 4700 2850
+Wire Wire Line
+	4700 2850 4700 2900
+Wire Wire Line
+	6050 3350 6300 3350
+Wire Wire Line
+	6300 3350 6300 3950
+Wire Wire Line
+	6300 3950 4950 3950
+Wire Wire Line
+	4950 3950 4950 3400
+Wire Wire Line
+	4950 3400 4800 3400
+Wire Wire Line
+	4800 3400 4800 3300
+Connection ~ 4800 3300
+Wire Wire Line
+	4800 3300 4900 3300
+Wire Wire Line
+	5550 2300 5550 2400
+Wire Wire Line
+	6650 2400 6650 2700
+Wire Wire Line
+	6050 2950 6150 2950
+Wire Wire Line
+	6150 2950 6150 2300
+$Comp
+L power:PWR_FLAG #FLG02
+U 1 1 5F8CB1EE
+P 6650 2700
+F 0 "#FLG02" H 6650 2775 50  0001 C CNN
+F 1 "PWR_FLAG" V 6650 2828 50  0000 L CNN
+F 2 "" H 6650 2700 50  0001 C CNN
+F 3 "~" H 6650 2700 50  0001 C CNN
+	1    6650 2700
+	0    1    1    0   
+$EndComp
+Connection ~ 6650 2700
+Wire Wire Line
+	6650 2700 6650 3600
+Wire Wire Line
+	5550 2400 6650 2400
+Wire Wire Line
+	5050 3150 4850 3150
+Wire Wire Line
+	4850 3150 4850 3250
+Wire Wire Line
+	4850 3250 4250 3250
+Wire Wire Line
+	4250 3250 4250 3200
+Wire Wire Line
+	4250 3200 4200 3200
+$Comp
+L Connector:Conn_01x02_Male J1
+U 1 1 5F8DB70E
+P 5550 2100
+F 0 "J1" V 5612 2144 50  0000 L CNN
+F 1 "Conn_01x02_Male" V 5703 2144 50  0000 L CNN
+F 2 "Connector_PinSocket_2.54mm:PinSocket_1x02_P2.54mm_Vertical" H 5550 2100 50  0001 C CNN
+F 3 "~" H 5550 2100 50  0001 C CNN
+	1    5550 2100
+	0    1    1    0   
+$EndComp
+$Comp
+L Connector:Conn_01x01_Male J2
+U 1 1 5F8DC550
+P 6150 2100
+F 0 "J2" V 6212 2144 50  0000 L CNN
+F 1 "Conn_01x01_Male" V 6303 2144 50  0000 L CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 6150 2100 50  0001 C CNN
+F 3 "~" H 6150 2100 50  0001 C CNN
+	1    6150 2100
+	0    1    1    0   
+$EndComp
+$EndSCHEMATC
