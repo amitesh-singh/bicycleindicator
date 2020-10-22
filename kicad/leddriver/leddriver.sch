@@ -41,7 +41,7 @@ U 1 1 5F8F7B70
 P 3650 3200
 F 0 "C1" H 3765 3246 50  0000 L CNN
 F 1 "1uF" H 3765 3155 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 3688 3050 50  0001 C CNN
+F 2 "Capacitor_THT:C_Radial_D4.0mm_H5.0mm_P1.50mm" H 3688 3050 50  0001 C CNN
 F 3 "~" H 3650 3200 50  0001 C CNN
 	1    3650 3200
 	1    0    0    -1  
@@ -96,8 +96,6 @@ Wire Wire Line
 Connection ~ 4450 2900
 Wire Wire Line
 	4450 2900 4450 3000
-Wire Wire Line
-	4450 2900 4850 2900
 Connection ~ 4850 2900
 $Comp
 L power:GND #PWR06
@@ -123,9 +121,9 @@ F 3 "" H 5050 1200 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	4700 1200 5050 1200
-Text GLabel 4650 1850 2    50   Input ~ 0
+Text GLabel 4600 1700 2    50   Input ~ 0
 OUT
-Text GLabel 6050 2900 2    50   Input ~ 0
+Text GLabel 6150 2900 2    50   Input ~ 0
 OUT1
 $Comp
 L power:GND #PWR02
@@ -144,7 +142,7 @@ U 1 1 5F9055D9
 P 4800 3400
 F 0 "C2" H 4915 3446 50  0000 L CNN
 F 1 ".01uF" H 4915 3355 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 4838 3250 50  0001 C CNN
+F 2 "Capacitor_THT:C_Radial_D4.0mm_H5.0mm_P1.50mm" H 4838 3250 50  0001 C CNN
 F 3 "~" H 4800 3400 50  0001 C CNN
 	1    4800 3400
 	1    0    0    -1  
@@ -198,7 +196,7 @@ F 3 "http://www.ti.com/lit/ds/symlink/tlc555.pdf" H 8800 2750 50  0001 C CNN
 	1    7950 3150
 	1    0    0    -1  
 $EndComp
-Text GLabel 7450 3350 0    50   Input ~ 0
+Text GLabel 7400 3350 0    50   Input ~ 0
 OUT1
 $Comp
 L power:GND #PWR0101
@@ -239,7 +237,7 @@ U 1 1 5F90BC33
 P 6850 3300
 F 0 "C3" H 6965 3346 50  0000 L CNN
 F 1 "4.7uF" H 6965 3255 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 6888 3150 50  0001 C CNN
+F 2 "Capacitor_THT:C_Radial_D4.0mm_H5.0mm_P1.50mm" H 6888 3150 50  0001 C CNN
 F 3 "~" H 6850 3300 50  0001 C CNN
 	1    6850 3300
 	1    0    0    -1  
@@ -281,7 +279,7 @@ U 1 1 5F91CC75
 P 7100 3600
 F 0 "C4" H 7215 3646 50  0000 L CNN
 F 1 ".01uF" H 7215 3555 50  0000 L CNN
-F 2 "Capacitor_THT:C_Disc_D4.3mm_W1.9mm_P5.00mm" H 7138 3450 50  0001 C CNN
+F 2 "Capacitor_THT:C_Radial_D4.0mm_H5.0mm_P1.50mm" H 7138 3450 50  0001 C CNN
 F 3 "~" H 7100 3600 50  0001 C CNN
 	1    7100 3600
 	1    0    0    -1  
@@ -310,26 +308,8 @@ Wire Wire Line
 Connection ~ 6850 2300
 Wire Wire Line
 	6850 2300 6850 2400
-Text GLabel 8450 2950 2    50   Input ~ 0
+Text GLabel 8500 2950 2    50   Input ~ 0
 OUT
-Wire Wire Line
-	4050 2900 4450 2900
-Connection ~ 3650 2900
-Wire Wire Line
-	3650 2900 3650 3050
-Wire Wire Line
-	3650 2650 3650 2900
-$Comp
-L Switch:SW_Push SW1
-U 1 1 5F8F5FE1
-P 3850 2900
-F 0 "SW1" H 3850 3185 50  0000 C CNN
-F 1 "SW_Push" H 3850 3094 50  0000 C CNN
-F 2 "Button_Switch_THT:SW_PUSH_6mm_H5mm" H 3850 3100 50  0001 C CNN
-F 3 "~" H 3850 3100 50  0001 C CNN
-	1    3850 2900
-	1    0    0    -1  
-$EndComp
 $Comp
 L Connector:Conn_01x02_Male J2
 U 1 1 5F9522AD
@@ -345,23 +325,12 @@ Connection ~ 5050 1200
 $Comp
 L Connector:Conn_01x01_Male J1
 U 1 1 5F9568D2
-P 4450 1850
-F 0 "J1" H 4558 2031 50  0000 C CNN
-F 1 "Conn_01x01_Male" H 4558 1940 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 4450 1850 50  0001 C CNN
-F 3 "~" H 4450 1850 50  0001 C CNN
-	1    4450 1850
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x01_Male J3
-U 1 1 5F9649F6
-P 4500 1550
-F 0 "J3" H 4608 1731 50  0000 C CNN
-F 1 "Conn_01x01_Male" H 4608 1640 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 4500 1550 50  0001 C CNN
-F 3 "~" H 4500 1550 50  0001 C CNN
-	1    4500 1550
+P 4400 1700
+F 0 "J1" H 4508 1881 50  0000 C CNN
+F 1 "Conn_01x01_Male" H 4508 1790 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical" H 4400 1700 50  0001 C CNN
+F 3 "~" H 4400 1700 50  0001 C CNN
+	1    4400 1700
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -384,17 +353,6 @@ F 1 "VCC" V 4715 1228 50  0000 L CNN
 F 2 "" H 4700 1100 50  0001 C CNN
 F 3 "" H 4700 1100 50  0001 C CNN
 	1    4700 1100
-	0    1    1    0   
-$EndComp
-$Comp
-L power:VCC #PWR0106
-U 1 1 5F97C45E
-P 4700 1550
-F 0 "#PWR0106" H 4700 1400 50  0001 C CNN
-F 1 "VCC" V 4715 1678 50  0000 L CNN
-F 2 "" H 4700 1550 50  0001 C CNN
-F 3 "" H 4700 1550 50  0001 C CNN
-	1    4700 1550
 	0    1    1    0   
 $EndComp
 $Comp
@@ -466,12 +424,12 @@ $EndComp
 $Comp
 L Device:Buzzer BZ1
 U 1 1 5F996F1B
-P 9200 1900
-F 0 "BZ1" H 9352 1929 50  0000 L CNN
-F 1 "Buzzer" H 9352 1838 50  0000 L CNN
-F 2 "Buzzer_Beeper:MagneticBuzzer_ProSignal_ABI-010-RC" V 9175 2000 50  0001 C CNN
-F 3 "~" V 9175 2000 50  0001 C CNN
-	1    9200 1900
+P 9200 1200
+F 0 "BZ1" H 9352 1229 50  0000 L CNN
+F 1 "Buzzer" H 9352 1138 50  0000 L CNN
+F 2 "Buzzer_Beeper:MagneticBuzzer_ProSignal_ABI-010-RC" V 9175 1300 50  0001 C CNN
+F 3 "~" V 9175 1300 50  0001 C CNN
+	1    9200 1200
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -501,12 +459,114 @@ $EndComp
 $Comp
 L power:VCC #PWR0114
 U 1 1 5F9A00D1
-P 9100 1400
-F 0 "#PWR0114" H 9100 1250 50  0001 C CNN
-F 1 "VCC" H 9115 1573 50  0000 C CNN
-F 2 "" H 9100 1400 50  0001 C CNN
-F 3 "" H 9100 1400 50  0001 C CNN
-	1    9100 1400
+P 9100 950
+F 0 "#PWR0114" H 9100 800 50  0001 C CNN
+F 1 "VCC" H 9115 1123 50  0000 C CNN
+F 2 "" H 9100 950 50  0001 C CNN
+F 3 "" H 9100 950 50  0001 C CNN
+	1    9100 950 
 	1    0    0    -1  
 $EndComp
+Text Label 7300 2950 0    50   ~ 0
+TRG2
+Text Label 7250 3150 0    50   ~ 0
+CTRL2
+Wire Wire Line
+	7400 3350 7450 3350
+Text Label 8450 2950 1    50   ~ 0
+OUT
+Wire Wire Line
+	8450 2950 8500 2950
+Text Label 8450 3150 1    50   ~ 0
+DIS2
+Text Label 8450 3350 1    50   ~ 0
+THR2
+Text Label 5050 2900 1    50   ~ 0
+TR1
+Text Label 7450 3350 0    50   ~ 0
+RESET2
+Text Label 5050 3100 2    50   ~ 0
+CTRL1
+Text Label 5050 3300 0    50   ~ 0
+RESET1
+Text Label 6050 3300 0    50   ~ 0
+THR1
+Text Label 6050 2900 1    50   ~ 0
+OUT1
+Wire Wire Line
+	6050 2900 6150 2900
+Wire Wire Line
+	9100 950  9100 1050
+Wire Wire Line
+	9100 1300 9100 1350
+$Comp
+L Device:D D1
+U 1 1 5F93D059
+P 8500 1200
+F 0 "D1" V 8454 1280 50  0000 L CNN
+F 1 "D" V 8545 1280 50  0000 L CNN
+F 2 "Diode_THT:D_5KPW_P7.62mm_Vertical_AnodeUp" H 8500 1200 50  0001 C CNN
+F 3 "~" H 8500 1200 50  0001 C CNN
+	1    8500 1200
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8500 1350 9100 1350
+Connection ~ 9100 1350
+Wire Wire Line
+	9100 1350 9100 1400
+Wire Wire Line
+	8500 1050 9100 1050
+Connection ~ 9100 1050
+Wire Wire Line
+	9100 1050 9100 1100
+Wire Wire Line
+	9100 1800 9100 2000
+$Comp
+L Device:C C5
+U 1 1 5F94D72B
+P 4050 3100
+F 0 "C5" V 3798 3100 50  0000 C CNN
+F 1 "22pf" V 3889 3100 50  0000 C CNN
+F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 4088 2950 50  0001 C CNN
+F 3 "~" H 4050 3100 50  0001 C CNN
+	1    4050 3100
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	4450 2900 4850 2900
+$Comp
+L Switch:SW_Push SW1
+U 1 1 5F8F5FE1
+P 4050 2900
+F 0 "SW1" H 4050 3185 50  0000 C CNN
+F 1 "SW_Push" H 4050 3094 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_PUSH_6mm_H5mm" H 4050 3100 50  0001 C CNN
+F 3 "~" H 4050 3100 50  0001 C CNN
+	1    4050 2900
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3650 2650 3650 2900
+Wire Wire Line
+	3650 2900 3800 2900
+Connection ~ 3650 2900
+Wire Wire Line
+	3650 2900 3650 3050
+Wire Wire Line
+	4250 2900 4300 2900
+Wire Wire Line
+	4200 3100 4300 3100
+Wire Wire Line
+	4300 3100 4300 2900
+Connection ~ 4300 2900
+Wire Wire Line
+	4300 2900 4450 2900
+Wire Wire Line
+	3900 3100 3800 3100
+Wire Wire Line
+	3800 3100 3800 2900
+Connection ~ 3800 2900
+Wire Wire Line
+	3800 2900 3850 2900
 $EndSCHEMATC
