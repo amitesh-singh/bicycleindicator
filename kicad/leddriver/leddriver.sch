@@ -443,7 +443,7 @@ F 3 "https://www.onsemi.com/pub/Collateral/2N3903-D.PDF" H 9000 1600 50  0001 L 
 	1    9000 1600
 	1    0    0    -1  
 $EndComp
-Text GLabel 8800 1600 0    50   Input ~ 0
+Text GLabel 8000 1600 0    50   Input ~ 0
 OUT
 $Comp
 L power:GND #PWR0113
@@ -521,7 +521,7 @@ Connection ~ 9100 1050
 Wire Wire Line
 	9100 1050 9100 1100
 Wire Wire Line
-	9100 1800 9100 2000
+	9100 1800 9100 1950
 $Comp
 L Device:C C5
 U 1 1 5F94D72B
@@ -569,4 +569,40 @@ Wire Wire Line
 Connection ~ 3800 2900
 Wire Wire Line
 	3800 2900 3850 2900
+$Comp
+L Device:R R7
+U 1 1 5F947F9D
+P 8550 1750
+F 0 "R7" H 8620 1796 50  0000 L CNN
+F 1 "10k" H 8620 1705 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P2.54mm_Vertical" V 8480 1750 50  0001 C CNN
+F 3 "~" H 8550 1750 50  0001 C CNN
+	1    8550 1750
+	1    0    0    -1  
+$EndComp
+$Comp
+L Device:R R6
+U 1 1 5F949B69
+P 8250 1600
+F 0 "R6" V 8043 1600 50  0000 C CNN
+F 1 "10k" V 8134 1600 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P2.54mm_Vertical" V 8180 1600 50  0001 C CNN
+F 3 "~" H 8250 1600 50  0001 C CNN
+	1    8250 1600
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	8000 1600 8100 1600
+Wire Wire Line
+	8400 1600 8550 1600
+Wire Wire Line
+	8550 1600 8800 1600
+Connection ~ 8550 1600
+Wire Wire Line
+	8550 1900 8550 1950
+Wire Wire Line
+	8550 1950 9100 1950
+Connection ~ 9100 1950
+Wire Wire Line
+	9100 1950 9100 2000
 $EndSCHEMATC
