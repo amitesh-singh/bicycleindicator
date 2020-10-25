@@ -225,7 +225,7 @@ L Device:R R4
 U 1 1 5F90B146
 P 6850 2050
 F 0 "R4" H 6920 2096 50  0000 L CNN
-F 1 "1k" H 6920 2005 50  0000 L CNN
+F 1 "68k" H 6920 2005 50  0000 L CNN
 F 2 "Resistor_THT:R_Axial_DIN0204_L3.6mm_D1.6mm_P2.54mm_Vertical" V 6780 2050 50  0001 C CNN
 F 3 "~" H 6850 2050 50  0001 C CNN
 	1    6850 2050
@@ -522,17 +522,6 @@ Wire Wire Line
 	9100 1050 9100 1100
 Wire Wire Line
 	9100 1800 9100 1950
-$Comp
-L Device:C C5
-U 1 1 5F94D72B
-P 4050 3100
-F 0 "C5" V 3798 3100 50  0000 C CNN
-F 1 "22pf" V 3889 3100 50  0000 C CNN
-F 2 "Capacitor_THT:C_Disc_D3.0mm_W1.6mm_P2.50mm" H 4088 2950 50  0001 C CNN
-F 3 "~" H 4050 3100 50  0001 C CNN
-	1    4050 3100
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	4450 2900 4850 2900
 $Comp
@@ -548,27 +537,9 @@ F 3 "~" H 4050 3100 50  0001 C CNN
 $EndComp
 Wire Wire Line
 	3650 2650 3650 2900
-Wire Wire Line
-	3650 2900 3800 2900
 Connection ~ 3650 2900
 Wire Wire Line
 	3650 2900 3650 3050
-Wire Wire Line
-	4250 2900 4300 2900
-Wire Wire Line
-	4200 3100 4300 3100
-Wire Wire Line
-	4300 3100 4300 2900
-Connection ~ 4300 2900
-Wire Wire Line
-	4300 2900 4450 2900
-Wire Wire Line
-	3900 3100 3800 3100
-Wire Wire Line
-	3800 3100 3800 2900
-Connection ~ 3800 2900
-Wire Wire Line
-	3800 2900 3850 2900
 $Comp
 L Device:R R7
 U 1 1 5F947F9D
@@ -605,4 +576,8 @@ Wire Wire Line
 Connection ~ 9100 1950
 Wire Wire Line
 	9100 1950 9100 2000
+Wire Wire Line
+	4250 2900 4450 2900
+Wire Wire Line
+	3650 2900 3850 2900
 $EndSCHEMATC
