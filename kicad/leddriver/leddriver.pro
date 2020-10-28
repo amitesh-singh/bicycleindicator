@@ -1,4 +1,4 @@
-update=Thu 22 Oct 2020 05:55:06 PM IST
+update=Wed 28 Oct 2020 10:57:28 PM IST
 version=1
 last_client=kicad
 [general]
@@ -41,6 +41,7 @@ MinHoleToHole=0.25
 TrackWidth1=0.25
 TrackWidth2=0.381
 TrackWidth3=0.508
+TrackWidth4=0.7
 ViaDiameter1=0.8
 ViaDrill1=0.4
 dPairWidth1=0.2
@@ -252,6 +253,17 @@ dPairViaGap=0.25
 Name=homemade
 Clearance=0.508
 TrackWidth=0.508
+ViaDiameter=0.8
+ViaDrill=0.4
+uViaDiameter=0.3
+uViaDrill=0.1
+dPairWidth=0.2
+dPairGap=0.25
+dPairViaGap=0.25
+[pcbnew/Netclasses/2]
+Name=homemade2
+Clearance=0.508
+TrackWidth=0.7
 ViaDiameter=0.8
 ViaDrill=0.4
 uViaDiameter=0.3
